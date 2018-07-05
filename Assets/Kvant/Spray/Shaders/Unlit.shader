@@ -1,3 +1,5 @@
+// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
 //
 // Transparent unlit shader for Spray
 //
@@ -78,7 +80,7 @@ Shader "Kvant/Spray/Transparent Unlit"
 
         v2f o;
 
-        o.position = mul(UNITY_MATRIX_MVP, v.vertex);
+        o.position = UnityObjectToClipPos(v.vertex);
         o.texcoord = TRANSFORM_TEX(v.texcoord0, _MainTex);
         o.color = calc_color(uv, l);
 
